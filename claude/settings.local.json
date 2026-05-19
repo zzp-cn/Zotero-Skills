@@ -1,0 +1,49 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sqlite3 -readonly *)",
+      "Read(${ZOTERO_DATA_DIR}/**)",
+      "Read(${ZOTERO_PROFILE_DIR}/**)",
+      "Bash(find ${ZOTERO_DATA_DIR} -maxdepth * -name prefs.js *)",
+      "Bash(ls ${ZOTERO_DATA_DIR}/storage/*)",
+      "Bash(python3 -c *find_items_without_notes*)",
+      "Bash(python3 -c *tmp/all_texts.json*)",
+      "Bash(python3 -c *import json*)",
+      "WebSearch",
+      "Bash(python3 extract_*.py)",
+      "Bash(python3 save_extracted_texts.py)",
+      "Bash(python3 -c *${PROJECT_DIR}/tmp*)",
+      "Bash(python3 -c *import fitz*)",
+      "Bash(python3 -c *fitz.open*)",
+      "Bash(python3 -c *import pyzotero*)",
+      "Bash(python3 -c *ZOTERO_API_KEY*)",
+      "Bash(python3 -c *ZOTERO_USER_ID*)",
+      "Write(./tmp/**)",
+      "Edit(./tmp/**)",
+      "Write(./output/**)",
+      "Edit(./output/**)",
+      "Bash(python3 tmp/scripts/check_*.py)",
+      "Bash(python3 tmp/scripts/extract_*.py)",
+      "Bash(python3 tmp/scripts/save_*.py)"
+    ],
+    "ask": [
+      "Bash(cd ${ZOTERO_DATA_DIR} && python3 fix_zotero_metadata.py *)",
+      "Bash(cd ${ZOTERO_DATA_DIR} && python3 regenerate_summaries.py *)",
+      "Bash(python3 write_notes_*.py)",
+      "Bash(python3 -c *create_note*)",
+      "Bash(python3 -c *mark_processed*)",
+      "Bash(python3 -c *conn.commit*)",
+      "Bash(python3 tmp/scripts/write_notes_*.py)"
+    ],
+    "deny": [
+      "Bash(sqlite3 * UPDATE *)",
+      "Bash(sqlite3 * DELETE *)",
+      "Bash(sqlite3 * INSERT *)",
+      "Bash(sqlite3 * DROP *)",
+      "Bash(sqlite3 * ALTER *)",
+      "Bash(sqlite3 * VACUUM *)",
+      "Bash(sqlite3 * REINDEX *)",
+      "Bash(rm -rf ${ZOTERO_DATA_DIR} *)"
+    ]
+  }
+}
